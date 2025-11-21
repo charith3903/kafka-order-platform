@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "Order",
+  "namespace": "com.bigdata.avro",
+  "fields": [
+    {"name": "orderId", "type": "string"},
+    {"name": "productName", "type": "string"},
+    {"name": "price", "type": "double"},
+    {"name": "quantity", "type": "int"},
+    {"name": "timestamp", "type": "long"},
+    {"name": "studentRegNo", "type": "string"},
+    {"name": "status", "type": "string", "default": "PENDING"}
+  ]
+}

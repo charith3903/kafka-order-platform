@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: kafka-order-backend
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: order-consumer-group-EG-2020-3903
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      properties:
+        schema.registry.url: http://localhost:8081
+        specific.avro.reader: true
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      properties:
+        schema.registry.url: http://localhost:8081
+    listener:
+      ack-mode: manual
+
+server:
+  port: 8080
+
+kafka:
+  topics:
+    orders: orders
+    orders-dlq: orders-dlq
+  retry:
+    max-attempts: 3
+    delay-seconds: 2
+
+student:
+  reg-no: EG/2020/3903
