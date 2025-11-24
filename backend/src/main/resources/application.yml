@@ -2,7 +2,7 @@ spring:
   application:
     name: kafka-order-backend
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: localhost:9093
     consumer:
       group-id: order-consumer-group-EG-2020-3903
       auto-offset-reset: earliest
@@ -10,13 +10,13 @@ spring:
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
       properties:
-        schema.registry.url: http://localhost:8081
+        schema.registry.url: http://localhost:8084
         specific.avro.reader: true
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
       properties:
-        schema.registry.url: http://localhost:8081
+        schema.registry.url: http://localhost:8084
     listener:
       ack-mode: manual
 

@@ -2,8 +2,8 @@ package com.bigdata.service;
 
 import com.bigdata.avro.Order;
 import com.bigdata.model.OrderStatistics;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -19,13 +19,21 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Service
-@RequiredArgsConstructor
 @Slf4j
 public class OrderConsumerService {
 
     private final OrderAggregationService aggregationService;
     private final KafkaTemplate<String, String> dlqKafkaTemplate;
     private final SimpMessagingTemplate messagingTemplate;
+
+    public OrderConsumerService(
+            OrderAggregationService aggregationService,
+            @Qualifier("stringKafkaTemplate") KafkaTemplate<String, String> dlqKafkaTemplate,
+            SimpMessagingTemplate messagingTemplate) {
+        this.aggregationService = aggregationService;
+        this.dlqKafkaTemplate = dlqKafkaTemplate;
+        this.messagingTemplate = messagingTemplate;
+    }
 
     @Value("${kafka.topics.orders-dlq}")
     private String dlqTopic;

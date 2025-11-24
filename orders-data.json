@@ -1,0 +1,52 @@
+[
+  {
+    "productName": "Laptop",
+    "price": 1200.99,
+    "quantity": 2
+  },
+  {
+    "productName": "Mouse",
+    "price": 25.50,
+    "quantity": 5
+  },
+  {
+    "productName": "Keyboard",
+    "price": 75.00,
+    "quantity": 3
+  },
+  {
+    "productName": "Monitor",
+    "price": 350.00,
+    "quantity": 1
+  },
+  {
+    "productName": "USB Cable",
+    "price": 12.99,
+    "quantity": 10
+  },
+  {
+    "productName": "Headphones",
+    "price": 89.99,
+    "quantity": 4
+  },
+  {
+    "productName": "Webcam",
+    "price": 65.00,
+    "quantity": 2
+  },
+  {
+    "productName": "External SSD",
+    "price": 150.00,
+    "quantity": 1
+  },
+  {
+    "productName": "Phone Charger",
+    "price": 19.99,
+    "quantity": 8
+  },
+  {
+    "productName": "Wireless Router",
+    "price": 120.00,
+    "quantity": 1
+  }
+]
